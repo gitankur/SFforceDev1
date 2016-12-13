@@ -1,6 +1,6 @@
 public class AccountDeletion {
 	public void deleteAccount(){
-		Account act=new Account(name='ABhi corp');
+		Account act=new Account(name='Ankur corp');
 	}
 
 }
