@@ -1,0 +1,51 @@
+<apex:page sidebar="false" standardController="Account" recordSetVar="accounts">
+   <apex:form >
+    <apex:pageBlock title="Contact List" id="contact_List" >
+        Filter:
+        	<apex:selectList value="{!filterId}" size="1">
+                <apex:selectOptions value="{! listViewOptions}" />
+				<apex:actionSupport event="onchange" reRender="contact_List"/>                
+        	</apex:selectList>
+            <apex:pageBlockTable value="{!accounts}" var="ac">
+                <apex:column value="{!ac.Name}"/>
+                <apex:column value="{!ac.Phone}"/>
+                <apex:column value="{!ac.Industry}"/>
+                <apex:column value="{!ac.AnnualRevenue}"/>
+            </apex:pageBlockTable>
+        <!-- Pagination -->
+		<table style="width: 100%"><tr>
+    	<td>
+        Page: <apex:outputText value=" {!PageNumber} of {! CEILING(ResultSize / PageSize) }"/>
+   		 </td>   
+         <td align="center">
+        <apex:commandLink action="{! Previous }" value="« Previous"
+     rendered="{! HasPrevious }"/>
+<!-- inactive (no earlier pages) -->
+<apex:outputText style="color: #ccc;" value="« Previous"
+     rendered="{! NOT(HasPrevious) }"/>
+             &nbsp;&nbsp;
+        <!-- Next page -->
+             <apex:commandLink action="{! Next }" value="Next »"
+     rendered="{! HasNext }"/>
+<!-- inactive (no more pages) -->
+<apex:outputText style="color: #ccc;" value="Next »"
+     rendered="{! NOT(HasNext) }"/>
+    	</td>
+    	<td align="right">
+        <!-- Records per page -->
+            Records per page:
+     <apex:selectList value="{! PageSize }" size="1">
+         <apex:selectOption itemValue="3" itemLabel="3"/>
+         <apex:selectOption itemValue="5" itemLabel="5"/>
+         <apex:actionSupport event="onchange" reRender="contact_List"/>
+       </apex:selectList>
+   		 </td>
+
+		</tr></table>
+        
+        
+
+     
+    </apex:pageBlock>    
+	</apex:form>
+</apex:page>

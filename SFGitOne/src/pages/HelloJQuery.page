@@ -1,0 +1,10 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" >
+    <apex:includeScript value="{!$Resource.jQuery}"/>
+    <script type="text/javascript">
+    jQuery.noConflict();
+    jQuery(document).ready(function(){
+                           jQuery("#message").html("Hello from jQuery")});
+    </script>
+    
+    <h3 id="message"/>
+</apex:page>

@@ -1,0 +1,14 @@
+<apex:page standardController="Account" recordSetVar="accounts">
+   <apex:pageBlock >
+        
+            <apex:repeat value="{!accounts}" var="a">
+                <apex:outputLink value="/{!a.id}" >
+                 <li><apex:outputField value="{!a.name}"/> &nbsp;
+                <apex:outputField value="{!a.phone}"/>&nbsp;
+                <apex:outputField value="{!a.industry}"/>&nbsp;
+                <apex:outputField value="{!a.annualRevenue}"/></li>
+                </apex:outputLink>
+            </apex:repeat>
+     
+    </apex:pageBlock>
+</apex:page>

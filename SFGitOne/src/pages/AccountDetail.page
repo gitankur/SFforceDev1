@@ -1,0 +1,22 @@
+<apex:page standardController="Account">
+ 	<apex:pageBlock title="Account">
+        <apex:pageBlockSection >
+         	<apex:outputField value="{!Account.name}"/>
+    		<apex:outputField value="{!Account.phone}"/>
+    		<apex:outputField value="{!Account.Industry}"/>
+    		<apex:outputField value="{!Account.AnnualRevenue}"/>
+        </apex:pageBlockSection>
+     </apex:pageBlock>
+    
+    <apex:pageBlock title="Contact">
+       
+        <apex:pageBlockSection >
+         	<apex:pageBlockTable value="{!Account.contacts}" var="list">
+                <apex:column value="{!list.name}"/>
+                <apex:column value="{!list.title}"/>
+                <apex:column value="{!list.phone}"/>                
+            </apex:pageBlockTable>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+    
+</apex:page>
